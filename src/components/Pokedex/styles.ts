@@ -4,10 +4,16 @@ import { secondaryColor } from '../../styles/colors';
 
 export const Container = styled.div`
     width: 100%;
-    height: 60px;
-    background-color: ${secondaryColor};
+    height: calc(100% - 100px);
+    overflow-y: auto;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    padding: 0 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+`;
+
+export const Title = styled.h1`
+    text-align: center;
+    color: ${secondaryColor};
 `;

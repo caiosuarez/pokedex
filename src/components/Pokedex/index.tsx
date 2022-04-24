@@ -1,45 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { getPokemons, getPokemonData } from '../../api';
 
-// import { Container } from './styles';
+import { Container, Title } from './styles';
 
-interface fullPokemon {
-    abilities: [];
-    base_experience: number;
-    forms: [];
-    game_indices: [];
-    height: number;
-    held_items: [];
-    id: number;
-    is_default: boolean;
-    location_area_encounters: string;
-    moves: [];
-    name: string;
-    order: number;
-    species: {
-        name: string;
-        url: string;
-    };
-    sprites: {
-        back_default: string;
-    };
-    stats: [];
-    types: [];
-    weight: number;
-}
+// components
+import Pokemon from '../Pokemon';
 
-interface pokemon {
-    name: string;
-    url: string;
-}
+// interfaces
+import { pokemon, fullPokemon } from '../../types';
 
 function Pokedex() {
     const [pokemons, setPokemons] = useState<fullPokemon[] | []>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
-    const fetchPokemon = async () => {
+    const fetchPokemons = async () => {
         const data = await getPokemons();
-        const promises = data.results.map(async (pokemon: pokemon) =>
+        const promises = data.results.map((pokemon: pokemon) =>
             getPokemonData(pokemon.url)
         );
         const pokemonsData: fullPokemon[] = await Promise.all(promises);
@@ -48,16 +24,24 @@ function Pokedex() {
     };
 
     useEffect(() => {
-        fetchPokemon();
+        fetchPokemons();
     }, []);
 
     console.log('pokemons', pokemons);
 
     return (
-        <div>
-            <h1>Pokedex</h1>
-            {loading ? <div>Loading...</div> : <div>eae</div>}
-        </div>
+        <>
+            <Title>Pokedex</Title>
+            <Container>
+                {loading ? (
+                    <div>Loading...</div>
+                ) : (
+                    pokemons.map((pokemon: fullPokemon) => (
+                        <Pokemon key={pokemon.id} pokemon={pokemon} />
+                    ))
+                )}
+            </Container>
+        </>
     );
 }
 

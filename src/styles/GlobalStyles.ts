@@ -10,7 +10,7 @@ export default createGlobalStyle`
     }
 
     body {
-        font-family: sans-serif;
+        font-family: 'Poppins', sans-serif;
         background-color: ${bgColor};
     }
 
@@ -28,6 +28,11 @@ export default createGlobalStyle`
 
     ul {
         list-style: none;
+    }
+
+    .App {
+        height: 100%;
+        overflow: hidden;
     }
 `;
 

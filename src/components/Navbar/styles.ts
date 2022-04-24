@@ -4,7 +4,7 @@ import {
     primaryColor,
     secondaryColor,
     bgColor,
-    textColor,
+    neutralWhite,
 } from '../../styles/colors';
 
 export const Container = styled.div`
@@ -31,7 +31,7 @@ export const NavItem = styled.button`
     margin: 0 5px;
 
     span {
-        color: ${textColor};
+        color: ${neutralWhite};
         margin-left: 5px;
         font-size: 15px;
     }

@@ -5,7 +5,7 @@ import { faHouse, faStar } from '@fortawesome/free-solid-svg-icons';
 import pokemonLogo from '../../assets/images/pokemon-logo.png';
 
 import { Container, NavItem } from './styles';
-import { textColor } from '../../styles/colors';
+import { neutralWhite } from '../../styles/colors';
 
 function Navbar() {
     return (
@@ -14,7 +14,7 @@ function Navbar() {
             <NavItem>
                 <FontAwesomeIcon
                     fontSize="15px"
-                    color={textColor}
+                    color={neutralWhite}
                     icon={faHouse}
                 />
                 <span>HOME</span>
@@ -22,7 +22,7 @@ function Navbar() {
             <NavItem>
                 <FontAwesomeIcon
                     fontSize="15px"
-                    color={textColor}
+                    color={neutralWhite}
                     icon={faStar}
                 />
                 <span>FAVORITES</span>
