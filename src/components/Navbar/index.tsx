@@ -12,7 +12,7 @@ function Navbar() {
     return (
         <Container>
             <img src={pokemonLogo} alt="logo" />
-            <Link to="/home">
+            <Link to="/">
                 <NavItem>
                     <FontAwesomeIcon
                         fontSize="15px"
