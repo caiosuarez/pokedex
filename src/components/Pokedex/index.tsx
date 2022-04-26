@@ -5,6 +5,7 @@ import { Container, Title } from './styles';
 
 // components
 import Pokemon from '../Pokemon';
+import Loader from '../Loader';
 
 // interfaces
 import { pokemon, fullPokemon } from '../../types';
@@ -32,7 +33,7 @@ function Pokedex() {
             <Title>Pokedex</Title>
             <Container>
                 {loading ? (
-                    <div>Loading...</div>
+                    <Loader />
                 ) : (
                     pokemons.map((pokemon: fullPokemon) => (
                         <Pokemon key={pokemon.id} pokemon={pokemon} />

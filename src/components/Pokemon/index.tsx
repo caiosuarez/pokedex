@@ -1,8 +1,10 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-import { neutralWhite } from '../../styles/colors';
+// styles
+import { secondaryColor, neutralWhite } from '../../styles/colors';
 import {
     Card,
     CardHeader,
@@ -13,13 +15,21 @@ import {
 } from './styles';
 
 // interfaces
-import { stat, fullPokemon } from '../../types';
+import { stat, fullPokemon, initialStateInterface } from '../../types';
 
 interface PokemonProps {
     pokemon: fullPokemon;
 }
 
 function Pokemon({ pokemon }: PokemonProps) {
+    const dispatch = useDispatch();
+    const favoritePokemons = useSelector(
+        (state: initialStateInterface) => state.favoritePokemons
+    );
+    const pokemonIsFavorite = favoritePokemons.some(
+        (favoritePokemon: fullPokemon) => favoritePokemon.id === pokemon.id
+    );
+
     const getColorForType = (type: string) => {
         switch (type) {
             case 'normal':
@@ -63,14 +73,25 @@ function Pokemon({ pokemon }: PokemonProps) {
         }
     };
 
+    const handleFavoritePokemon = (pokemon: fullPokemon) => {
+        dispatch({
+            type: 'FAVORITE_POKEMON',
+            payload: {
+                pokemon,
+            },
+        });
+    };
+
     return (
         <Card>
             <CardHeader>
                 <h1>{pokemon.name}</h1>
-                <FavoriteButton>
+                <FavoriteButton onClick={() => handleFavoritePokemon(pokemon)}>
                     <FontAwesomeIcon
                         fontSize="19px"
-                        color={neutralWhite}
+                        color={
+                            pokemonIsFavorite ? secondaryColor : neutralWhite
+                        }
                         icon={faStar}
                         className="favorite-icon"
                     />

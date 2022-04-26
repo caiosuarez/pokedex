@@ -6,7 +6,6 @@ export const getPokemons = async (limit = 50, offset = 0) => {
         );
         return await res.json();
     } catch (error) {
-        console.log('error', error);
         return { error };
     }
 };
@@ -16,7 +15,6 @@ export const getPokemonData = async (url: string) => {
         const res = await fetch(url);
         return await res.json();
     } catch (error) {
-        console.log('error', error);
         return { error };
     }
 };
