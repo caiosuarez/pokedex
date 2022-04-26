@@ -27,8 +27,6 @@ function Pokedex() {
         fetchPokemons();
     }, []);
 
-    console.log('pokemons', pokemons);
-
     return (
         <>
             <Title>Pokedex</Title>
