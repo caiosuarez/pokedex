@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,22 +12,26 @@ function Navbar() {
     return (
         <Container>
             <img src={pokemonLogo} alt="logo" />
-            <NavItem>
-                <FontAwesomeIcon
-                    fontSize="15px"
-                    color={neutralWhite}
-                    icon={faHouse}
-                />
-                <span>HOME</span>
-            </NavItem>
-            <NavItem>
-                <FontAwesomeIcon
-                    fontSize="15px"
-                    color={neutralWhite}
-                    icon={faStar}
-                />
-                <span>FAVORITES</span>
-            </NavItem>
+            <Link to="/home">
+                <NavItem>
+                    <FontAwesomeIcon
+                        fontSize="15px"
+                        color={neutralWhite}
+                        icon={faHouse}
+                    />
+                    <span>HOME</span>
+                </NavItem>
+            </Link>
+            <Link to="/favorites">
+                <NavItem>
+                    <FontAwesomeIcon
+                        fontSize="15px"
+                        color={neutralWhite}
+                        icon={faStar}
+                    />
+                    <span>FAVORITES</span>
+                </NavItem>
+            </Link>
         </Container>
     );
 }

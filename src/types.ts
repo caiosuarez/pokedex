@@ -45,3 +45,7 @@ export interface fullPokemon {
     ];
     weight: number;
 }
+
+export interface initialStateInterface {
+    favoritePokemons: fullPokemon[];
+}

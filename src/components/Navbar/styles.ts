@@ -1,11 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
-import {
-    primaryColor,
-    secondaryColor,
-    bgColor,
-    neutralWhite,
-} from '../../styles/colors';
+import { secondaryColor, neutralWhite } from '../../styles/colors';
 
 export const Container = styled.div`
     width: 100%;

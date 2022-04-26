@@ -75,6 +75,7 @@ export const TypeBadge = styled.div`
     align-items: center;
     position: absolute;
     bottom: -20px;
+    font-weight: 600;
 `;
 
 export const CardBody = styled.div`
