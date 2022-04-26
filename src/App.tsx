@@ -11,14 +11,14 @@ import Favorites from './pages/Favorites';
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className="App">
                 <Navbar />
                 <GlobalStyles />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/pokedex" element={<Home />} />
-                    <Route path="favorites" element={<Favorites />} />
+                    <Route path="/pokedex/favorites" element={<Favorites />} />
                 </Routes>
             </div>
         </BrowserRouter>
