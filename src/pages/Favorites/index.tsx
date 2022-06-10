@@ -18,10 +18,13 @@ function Favorites() {
         <>
             <Title>Favorites</Title>
             <Container>
-                {favoritePokemons &&
+                {favoritePokemons && favoritePokemons.length > 0 ? (
                     favoritePokemons.map((pokemon: fullPokemon) => (
                         <Pokemon key={pokemon.id} pokemon={pokemon} />
-                    ))}
+                    ))
+                ) : (
+                    <p>No favorites yet</p>
+                )}
             </Container>
         </>
     );

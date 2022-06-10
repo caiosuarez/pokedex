@@ -16,14 +16,14 @@ const reducer = (
     switch (action.type) {
         case 'FAVORITE_POKEMON': {
             const newState = _.cloneDeep(state);
-            const index = newState.favoritePokemons.findIndex(
+            const pokemonIndex = newState.favoritePokemons.findIndex(
                 (pokemon: fullPokemon) =>
                     pokemon.id === action.payload.pokemon.id
             );
-            if (index === -1) {
+            if (pokemonIndex === -1) {
                 newState.favoritePokemons.push(action.payload.pokemon);
             } else {
-                newState.favoritePokemons.splice(index, 1);
+                newState.favoritePokemons.splice(pokemonIndex, 1);
             }
             return newState;
         }
